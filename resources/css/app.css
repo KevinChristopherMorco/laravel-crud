@@ -1,0 +1,154 @@
+:root {
+    --primary: maroon;
+    --green: green;
+    --light-green: #62F138;
+    --red: red;
+    --ligt-red: #FF4F4F;
+    --orange: orange;
+    --white: #fff
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.table-container {
+    width: 100%;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table th {
+    color: var(--white);
+}
+
+table th:first-child {
+    border-radius: 1rem 0 0 0;
+}
+
+table th:last-of-type {
+    border-radius: 0 1rem 0 0;
+}
+
+.table-container table tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+.table-container th {
+    background-color: var(--primary);
+    padding: 1rem;
+    width: 100%;
+}
+
+.table-container table td {
+    padding: 1rem;
+    width: 100%;
+}
+
+.fa-pen-to-square {
+    color: var(--orange);
+}
+
+button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+button>.fa-box-archive {
+    color: var(--red);
+}
+
+button>.fa-trash-can {
+    color: var(--red);
+}
+
+button>.fa-rotate-right {
+    color: var(--green);
+}
+
+input {
+    padding: .3rem;
+    border-radius: .2rem;
+}
+
+.input-group {
+    padding-top: 1rem;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-background {
+    background-color: red;
+    width: 30%;
+}
+
+.link-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:.5rem;
+}
+
+.link-button:nth-of-type(1) {
+    background-color: var(--green);
+    color: var(--white);
+    padding: .5rem;
+    margin-right: .5rem;
+    border-radius: .2rem;
+
+}
+
+.link-button:nth-of-type(2) {
+    background-color: var(--red);
+    color: var(--white);
+    padding: .5rem;
+    border-radius: .3rem;
+}
+
+.message-container{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    width: 30%;
+    margin: 1rem auto;
+}
+
+.message-container-register, .message-container-restore{
+    background-color: var(--light-green);
+    border: 2px solid var(--green);
+}
+
+.message-container-archive{
+    background-color: var(--ligt-red);
+    border: 2px solid var(--red);
+}
+
+.message-container p{
+    color: var(--white);
+    font-size: 1rem;
+}
