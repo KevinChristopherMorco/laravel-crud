@@ -1,10 +1,12 @@
 :root {
     --primary: maroon;
+    --light-background: lemonchiffon;
     --green: green;
     --light-green: #62F138;
     --red: red;
-    --ligt-red: #FF4F4F;
+    --light-red: #FF4F4F;
     --orange: orange;
+    --light-orange: #FFC862;
     --white: #fff
 }
 
@@ -27,11 +29,14 @@ a {
 }
 
 .table-container {
-    width: 100%;
     padding-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+table{
+    width: 70%;
 }
 
 table th {
@@ -53,25 +58,65 @@ table th:last-of-type {
 .table-container th {
     background-color: var(--primary);
     padding: 1rem;
-    width: 100%;
 }
+
+.table-container thead tr th:nth-child(1) {
+    width: 20%;
+}
+
+.table-container thead tr th:nth-child(2) {
+    width: 20%;
+}
+
+.table-container thead tr th:nth-child(3) {
+    width: 20%;
+}
+
+.table-container thead tr th:nth-child(5) {
+    width: 20%;
+}
+
 
 .table-container table td {
     padding: 1rem;
-    width: 100%;
+    text-align: center;
 }
 
-.fa-pen-to-square {
-    color: var(--orange);
+.table-label{
+    text-align: center;
+    padding: 1rem;
 }
 
-button {
+
+table button {
     background-color: transparent;
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
     overflow: hidden;
     outline: none;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding: 1rem;
+}
+
+button {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: .5rem;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+.action-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center
 }
 
 button>.fa-box-archive {
@@ -86,32 +131,52 @@ button>.fa-rotate-right {
     color: var(--green);
 }
 
+.fa-pen-to-square {
+    color: var(--orange);
+    padding: .5rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+.label-container {
+    padding: .5rem 0;
+}
+
 input {
-    padding: .3rem;
+    width: 100%;
+    padding: .5rem;
     border-radius: .2rem;
+    outline: 1px solid var(--primary);
+    border: none;
 }
 
 .input-group {
-    padding-top: 1rem;
+    padding: 1rem;
+    width: 100%;
 }
 
 .input-container {
+    width: 50%;
+    padding: 4rem;
+    margin: 3rem auto;
+    background-color: var(--light-background);
+    border-radius: 1rem;
+}
+
+.input-group-container {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.input-background {
-    background-color: red;
-    width: 30%;
-}
-
-.link-button-container{
+.link-button-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top:.5rem;
+    padding-top: .5rem;
 }
 
 .link-button:nth-of-type(1) {
@@ -130,25 +195,63 @@ input {
     border-radius: .3rem;
 }
 
-.message-container{
+.message-container {
     display: flex;
     justify-content: center;
     padding: 1rem;
     width: 30%;
     margin: 1rem auto;
+    border-radius: .5rem;
 }
 
-.message-container-register, .message-container-restore{
+.message-container-register,
+.message-container-restore {
     background-color: var(--light-green);
     border: 2px solid var(--green);
 }
-
-.message-container-archive{
-    background-color: var(--ligt-red);
+.message-container-edit {
+    background-color: var(--light-orange);
+    border: 2px solid var(--orange);
+}
+.message-container-archive {
+    background-color: var(--light-red);
     border: 2px solid var(--red);
 }
 
-.message-container p{
+.message-container p {
     color: var(--white);
     font-size: 1rem;
+}
+
+.error-container {
+    margin: 1rem 0;
+    min-height: 1rem;
+}
+
+
+.alert.alert-danger {
+    color: var(--red);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.home-button-container{
+    padding: 1rem 1rem;
+}
+
+.home-button{
+    padding: .5rem .5rem;
+}
+
+a:active{
+    color: blue;
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+    table{
+        width: 30%;
+    }
+    .table-container{
+        overflow-x: auto;
+    }
 }

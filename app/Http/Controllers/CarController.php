@@ -22,9 +22,9 @@ class CarController extends Controller
     {
         $validated = $request->validate([
             'brand' => 'required',
-            'model' => 'required',
+            'model' => 'required|unique:cars,model',
             'color' => 'required',
-            'price' => 'required|decimal:2',
+            'price' => 'required|numeric|decimal:1,4|',
         ]);
 
         Car::create($validated);
@@ -33,19 +33,17 @@ class CarController extends Controller
 
     public function edit(Car $car, Request $request){
         return view('edit', ['cars' => $car]);
-
     }
 
     public function update(Car $car, Request $request){
         $validated = $request->validate([
             'brand' => 'required',
-            'model' => 'required',
+            'model' => 'required|unique:cars,model,'.$car->id,
             'color' => 'required',
-            'price' => 'required|decimal:1,4',
+            'price' => 'required|numeric|decimal:1,4',
         ]);
         $car->update($validated);
         return redirect()->route('index')->with('edit','Car Updated');
-
     }
 
     public function archive(Car $car){
@@ -56,8 +54,7 @@ class CarController extends Controller
     public function destroy(Car $car){
         if($car->trashed()){
             $car->forceDelete();
-            return redirect()->route('index')->with('delete','Car Deleted');
-
+            return redirect()->route('car.archive')->with('delete','Car Deleted');
         }
         $car->delete();
         return redirect()->route('index')->with('archive','Car Archived');
