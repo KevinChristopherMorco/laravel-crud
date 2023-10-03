@@ -9,7 +9,7 @@ class CarController extends Controller
 {
     public function index()
     {
-       $car = Car::all();
+        $car = Car::orderBy('created_at', 'desc')->paginate(5);
         return view('welcome',['cars' => $car]);
     }
 
@@ -24,7 +24,7 @@ class CarController extends Controller
             'brand' => 'required',
             'model' => 'required|unique:cars,model',
             'color' => 'required',
-            'price' => 'required|numeric|decimal:1,4|',
+            'price' => 'required|numeric|decimal:2|between:0.00,9999999999.99',
         ]);
 
         Car::create($validated);
@@ -40,14 +40,14 @@ class CarController extends Controller
             'brand' => 'required',
             'model' => 'required|unique:cars,model,'.$car->id,
             'color' => 'required',
-            'price' => 'required|numeric|decimal:1,4',
+            'price' => 'required|numeric|decimal:2|between:0.00,9999999999.99',
         ]);
         $car->update($validated);
         return redirect()->route('index')->with('edit','Car Updated');
     }
 
     public function archive(Car $car){
-        $car = array('cars' => Car::onlyTrashed()->orderBy('id')->get());
+        $car = array('cars' => Car::onlyTrashed()->orderBy('deleted_at', 'desc')->paginate(5));
         return view('archive', $car);
     }
 

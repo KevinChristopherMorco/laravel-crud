@@ -57,4 +57,7 @@
         </tbody>
     </table>
 </div>
+<div class="paginate">
+    {{$cars->links()}}
+    </div>
 @endsection

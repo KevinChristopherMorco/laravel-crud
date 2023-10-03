@@ -97,6 +97,14 @@ table button {
     outline: none;
 }
 
+.paginate svg{
+    display: none;
+}
+
+.paginate{
+text-align: center;
+}
+
 .button-container {
     width: 100%;
     display: flex;
